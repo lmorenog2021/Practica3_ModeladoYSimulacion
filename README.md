@@ -342,3 +342,18 @@ Y vemos el PDF que genera:
 En él se puede ver como todos los links originan de base_link y este a su vez origina de base_footprint.
 
 ## Parte B
+Siguiendo las instrucciones del vídeo de clase configuramos MoveIt:
+![Screenshot from 2025-05-11 13-49-17](https://github.com/user-attachments/assets/9fa0799a-00f9-4214-bdc2-a43dbac8fc43)
+![Screenshot from 2025-05-11 14-49-57](https://github.com/user-attachments/assets/2a6095fd-1ce7-4bd3-adad-1a245a7bcbd9)
+![Screenshot from 2025-05-11 14-50-10](https://github.com/user-attachments/assets/09df116d-5052-4116-a6c2-4a84e8e70b86)
+![Screenshot from 2025-05-11 14-50-30](https://github.com/user-attachments/assets/718d83d5-5b66-4169-9fc8-2226f7f58b96)
+![Screenshot from 2025-05-11 14-50-39](https://github.com/user-attachments/assets/68c96006-1ff1-46e6-9dc6-ffd2f0b8174e)
+![Screenshot from 2025-05-11 14-50-51](https://github.com/user-attachments/assets/145c58d1-b9dd-441e-b45a-38b785c9f43d)
+![Screenshot from 2025-05-11 14-50-59](https://github.com/user-attachments/assets/28879760-14d1-48a0-a279-29d7d3570b9f)
+Y aquí es donde encontramos problemas, porque a pesar de que el teleop funciona:
+![Inicio](https://github.com/user-attachments/assets/82ceda21-43c9-4299-91db-4876040bf519)
+![Destino](https://github.com/user-attachments/assets/377eeec2-c2bc-4535-ad6f-e89756a3dc49)
+
+A la hora de hacer el plan y ejecutarlo, se queda atascado el sistema y no continúa con la ejecución
+![image](https://github.com/user-attachments/assets/1771c09e-e7c7-4f22-abc0-3edd994cf29d)
+![image](https://github.com/user-attachments/assets/70131025-3845-43fd-8612-bb93cc285aee)
