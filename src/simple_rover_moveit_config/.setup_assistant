@@ -1,0 +1,27 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: simple_rover_description
+    relative_path: robots/robot.urdf.xacro
+  srdf:
+    relative_path: config/simple_rover.srdf
+  package_settings:
+    author_name: Luis M. G.
+    author_email: l.morenog.2021@alumnos.urjc.es
+    generated_timestamp: 1746967782
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+      - effort
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+      - effort

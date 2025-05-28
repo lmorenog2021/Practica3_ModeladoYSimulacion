@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="scara" params="offset_x offset_y offset_z parent_link">
+
+    <!--First Joint-->
+    <joint name="Cylinder_link_joint" type="fixed">
+      <limit lower="0" upper="0" effort="5000.0000" velocity="100.00000"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="${offset_x} ${offset_y} ${offset_z}"/> <!-- "0.00000 0.00000 0.50000" -->
+      <parent link="${parent_link}"/>
+      <child link="Cylinder_link"/>
+      <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+    <!--First Link-->
+    <link name="Cylinder_link">
+      <collision name="Cylinder_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+        <geometry>
+          <cylinder radius="0.15000" length="0.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.05292" ixy="0.00000" ixz="0.00000" iyy="0.05292" iyz="0.00000" izz="0.02250"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+        <mass value="2.00000"/>
+      </inertial>
+      <visual name="Cylinder">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 -0.00000"/>
+        <material name="Arm"/>
+        <geometry>
+          <cylinder radius="0.15000" length="0.50000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!--Rest of the Joints-->
+    <joint name="Cylinder.001_link_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="5000.0000" velocity="100.00000"/>
+      <origin rpy="0.00000 0.00000 -0.05721" xyz="-0.00000 -0.00000 0.34744"/>
+      <parent link="Cylinder_link"/>
+      <child link="Cylinder.001_link"/>
+      <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+    <joint name="Cylinder.002_link_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="5000.0000" velocity="100.00000"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.61513 -0.00000 0.20000"/>
+      <parent link="Cylinder.001_link"/>
+      <child link="Cylinder.002_link"/>
+      <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+    <joint name="Cylinder.003_link_joint" type="prismatic">
+      <limit lower="-1.75000" upper="0.00000" effort="5000.0000" velocity="100.00000"/>
+      <origin rpy="0.00000 0.00000 -0.00000" xyz="0.64476 -0.00000 0.77677"/>
+      <parent link="Cylinder.002_link"/>
+      <child link="Cylinder.003_link"/>
+      <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+    <!--Rest of the Links-->
+    <link name="Cylinder.001_link">
+      <collision name="Cylinder.001_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.25000 -0.00000 0.00000"/>
+        <geometry>
+          <mesh filename="file://$(find simple_rover_description)/meshes/dae/Cylinder.009.dae" scale="0.50000 0.20000 0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.13167" ixy="0.00000" ixz="0.00000" iyy="0.13167" iyz="0.00000" izz="0.25000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.25000 -0.00000 -0.00000"/>
+        <mass value="2.00000"/>
+      </inertial>
+      <visual name="Cylinder.001">
+        <origin rpy="0.00000 0.00000 -0.00000" xyz="0.25000 -0.00000 -0.00000"/>
+        <material name="Arm"/>
+        <geometry>
+          <mesh filename="file://$(find simple_rover_description)/meshes/dae/Cylinder.009.dae" scale="0.50000 0.20000 0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="Cylinder.002_link">
+      <collision name="Cylinder.002_collision">
+        <origin rpy="0.00000 0.00000 -0.00000" xyz="0.38486 0.00000 -0.00000"/>
+        <geometry>
+          <mesh filename="file://$(find simple_rover_description)/meshes/dae/Cylinder.010.dae" scale="0.50000 0.20000 0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.13167" ixy="0.00000" ixz="0.00000" iyy="0.13167" iyz="0.00000" izz="0.25000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.38486 0.00000 -0.00000"/>
+        <mass value="2.00000"/>
+      </inertial>
+      <visual name="Cylinder.002">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.38486 0.00000 -0.00000"/>
+        <material name="Arm"/>
+        <geometry>
+          <mesh filename="file://$(find simple_rover_description)/meshes/dae/Cylinder.010.dae" scale="0.50000 0.20000 0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="Cylinder.003_link">
+      <collision name="Cylinder.003_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00099 -0.00000 -0.00000"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.75000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.13625" ixy="0.00000" ixz="0.00000" iyy="0.13625" iyz="0.00000" izz="0.00250"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00099 0.00000 -0.00000"/>
+        <mass value="2.00000"/>
+      </inertial>
+      <visual name="Cylinder.003">
+        <origin rpy="0.00000 0.00000 -0.00000" xyz="-0.00099 0.00000 -0.00000"/>
+        <material name="Arm"/>
+        <geometry>
+          <cylinder radius="0.05000" length="1.75000"/>
+        </geometry>
+      </visual>
+    </link>
+
+  </xacro:macro>
+</robot>
+  

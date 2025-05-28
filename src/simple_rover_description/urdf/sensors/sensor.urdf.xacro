@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="sensor"  params="offset_x offset_y offset_z parent_link">
+
+    <joint name="sensors_link_joint" type="fixed">
+      <origin rpy="-3.14159 1.57080 -3.14159" xyz="${offset_x} ${offset_y} ${offset_z}"/> <!--"0.00000 -1.57080 -1.25000"/-->
+      <parent link="${parent_link}"/> 
+      <child link="sensors_link"/>
+    </joint>
+
+    <link name="sensors_link">
+      <visual name="sensors">
+        <origin rpy="3.14159 0.00000 3.14159" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Sensors"/>
+        <geometry>
+          <box size="0.10000 0.30000 0.20000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <gazebo reference="sensors_link">
+      <sensor name="sensors" type="camera">
+        <visualize>true</visualize>
+        <update_rate>30</update_rate>
+        <topic>/arm_camera/image</topic>
+        <camera>
+          <horizontal_fov>1.57</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.10</near>
+            <far>15.0</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+          <optical_frame_id>sensors_link</optical_frame_id>
+        </camera>
+      </sensor>
+    </gazebo>
+
+  </xacro:macro>
+</robot>

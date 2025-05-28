@@ -1,0 +1,9 @@
+# Default initial positions for simple_rover's ros2_control fake system
+
+initial_positions:
+  Cube.003_link_joint: 0
+  Cube.004_link_joint: 0
+  Cube_link_joint: 0
+  Cylinder.001_link_joint: 0
+  Cylinder.002_link_joint: 0
+  Cylinder.003_link_joint: 0

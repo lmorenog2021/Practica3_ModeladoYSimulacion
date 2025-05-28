@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <xacro:macro name="robot_base" params="">
+    <!-- base_footprint joint -->
+    <link name="base_footprint"/>
+    
+    <!-- Base chasis joint -->
+    <joint name="Base_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.60000"/>
+      <parent link="base_footprint"/>
+      <child link="base_link"/>
+    </joint>
+
+    <!-- Base chasis link -->
+    <link name="base_link">
+      <collision name="Chasis.001_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+          <box size="2.30000 1.60000 0.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="23.41667" ixy="0.00000" ixz="0.00000" iyy="46.16666" iyz="0.00000" izz="65.41666"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <mass value="100.00000"/>
+      </inertial>
+      <visual name="Chasis.001">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <material name="Chasis"/>
+        <geometry>
+          <box size="2.30000 1.60000 0.50000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <!-- Chasis joint -->
+    <joint name="Chasis.002_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-1.25000 0.00000 0.25000"/>
+      <parent link="base_link"/>
+      <child link="Chasis.002_link"/>
+    </joint>
+
+
+    <joint name="Chasis.003_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.85000 0.25000"/>
+      <parent link="base_link"/>
+      <child link="Chasis.003_link"/>
+    </joint>
+
+
+    <joint name="Chasis.004_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.90000 0.00000 0.50000"/>
+      <parent link="base_link"/>
+      <child link="Chasis.004_link"/>
+    </joint>
+
+
+    <joint name="Chasis.001_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.85000 0.25000"/>
+      <parent link="base_link"/>
+      <child link="Chasis.001_link"/>
+    </joint>
+
+
+    <joint name="Cube.001_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.83737 0.00000 -0.29438"/>
+      <parent link="base_link"/>
+      <child link="Cube.001_link"/>
+    </joint>
+
+
+    <joint name="Cube.002_link_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.66263 0.00000 -0.29438"/>
+      <parent link="base_link"/>
+      <child link="Cube.002_link"/>
+    </joint>
+
+
+    <!-- Chasis link -->
+    <link name="Chasis.002_link">
+      <collision name="Chasis.002_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+          <box size="0.20000 1.80000 1.00000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.35333" ixy="0.00000" ixz="0.00000" iyy="0.08667" iyz="0.00000" izz="0.27333"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <mass value="1.00000"/>
+      </inertial>
+      <visual name="Chasis.002">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <material name="Chasis"/>
+        <geometry>
+          <box size="0.20000 1.80000 1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="Chasis.003_link">
+      <collision name="Chasis.003_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 -0.00000"/>
+        <geometry>
+          <box size="2.30000 0.10000 1.00000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.08417" ixy="0.00000" ixz="0.00000" iyy="0.52417" iyz="0.00000" izz="0.44167"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <mass value="1.00000"/>
+      </inertial>
+      <visual name="Chasis.003">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+        <material name="Chasis"/>
+        <geometry>
+          <box size="2.30000 0.10000 1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="Chasis.004_link">
+      <collision name="Chasis.004_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="0.50000 1.60000 0.50000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.70250" ixy="0.00000" ixz="0.00000" iyy="0.12500" iyz="0.00000" izz="0.70250"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="Chasis.004">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <material name="Chasis"/>
+        <geometry>
+          <box size="0.50000 1.60000 0.50000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="Chasis.001_link">
+      <collision name="Chasis.001_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="2.30000 0.10000 1.00000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.25250" ixy="0.00000" ixz="0.00000" iyy="1.57250" iyz="0.00000" izz="1.32500"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="Chasis">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <material name="Chasis"/>
+        <geometry>
+          <box size="2.30000 0.10000 1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="Cube.001_link">
+      <collision name="Cube.001_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="0.10000 1.90000 0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="1.50833" ixy="0.00000" ixz="0.00000" iyy="0.00833" iyz="0.00000" izz="1.50833"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <mass value="5.00000"/>
+      </inertial>
+      <visual name="Cube.001">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <material name="Axels"/>
+        <geometry>
+          <box size="0.10000 1.90000 0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="Cube.002_link">
+      <collision name="Cube.002_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="0.10000 1.90000 0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="1.50833" ixy="0.00000" ixz="0.00000" iyy="0.00833" iyz="0.00000" izz="1.50833"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <mass value="5.00000"/>
+      </inertial>
+      <visual name="Cube.002">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <material name="Axels"/>
+        <geometry>
+          <box size="0.10000 1.90000 0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+  </xacro:macro>
+</robot>

@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<robot name="simple_rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <material name="Wheels">
+    <color rgba="0.00000 0.00000 0.00000 1.00000"/> <!-- Black -->
+  </material>
+
+  <material name="Chasis">
+    <color rgba="0.00000 0.00000 0.54510 1.00000"/> <!-- Dark Blue -->
+  </material>
+
+  <material name="Axels">
+    <color rgba="0.50200 0.50200 0.50200 1.00000"/> <!-- Grey -->
+  </material>
+
+  <material name="Arm">
+    <color rgba="0.67843 0.84705 1.00000 1.00000"/> <!-- Light Blue -->
+  </material>
+
+  <material name="Gripper">
+    <color rgba="0.00000 1.00000 1.00000 1.00000"/> <!-- Bright Cyan -->
+  </material>
+
+  <material name="Sensors">
+    <color rgba="0.00000 0.00000 0.00000 1.00000"/> <!-- Black -->
+  </material>
+
+  <!-- Includes -->
+  <xacro:include filename="$(find simple_rover_description)/urdf/arm/gripper.urdf.xacro"/>
+  <xacro:include filename="$(find simple_rover_description)/urdf/arm/scara.urdf.xacro"/>
+  <xacro:include filename="$(find simple_rover_description)/urdf/base/robot_base.urdf.xacro"/>
+  <xacro:include filename="$(find simple_rover_description)/urdf/sensors/camera.urdf.xacro"/>
+  <xacro:include filename="$(find simple_rover_description)/urdf/sensors/imu_sensor.urdf.xacro"/>
+  <xacro:include filename="$(find simple_rover_description)/urdf/sensors/sensor.urdf.xacro"/>
+  <xacro:include filename="$(find simple_rover_description)/urdf/wheels/rover_wheels.urdf.xacro"/>
+  
+  <!-- Properties -->
+  <!-- Front Left Wheel Offset -->
+  <xacro:property name="FL_wheel_offset_x" value="-0.00000"/>
+  <xacro:property name="FL_wheel_offset_y" value="1.00000"/>
+  <xacro:property name="FL_wheel_offset_z" value="-0.00000"/>
+
+  <!-- Front Right Wheel Offset -->
+  <xacro:property name="FR_wheel_offset_x" value="-0.00000"/>
+  <xacro:property name="FR_wheel_offset_y" value="-1.00000"/>
+  <xacro:property name="FR_wheel_offset_z" value="-0.00000"/>
+
+  <!-- Back Left Wheel Offset -->
+  <xacro:property name="BL_wheel_offset_x" value="0.00000"/>
+  <xacro:property name="BL_wheel_offset_y" value="1.00000"/>
+  <xacro:property name="BL_wheel_offset_z" value="-0.00000"/>
+
+  <!-- Back Right Wheel Offset -->
+  <xacro:property name="BR_wheel_offset_x" value="0.00000"/>
+  <xacro:property name="BR_wheel_offset_y" value="-1.00000"/>
+  <xacro:property name="BR_wheel_offset_z" value="-0.00000"/>
+
+  <!-- SCARA Arm Offset -->
+  <xacro:property name="Scara_offset_x" value="0.00000"/>
+  <xacro:property name="Scara_offset_y" value="0.00000"/>
+  <xacro:property name="Scara_offset_z" value="0.50000"/>
+
+  <!-- Gripper Offset -->
+  <xacro:property name="Gripper_offset_x" value="-0.00000"/>
+  <xacro:property name="Gripper_offset_y" value="-0.00000"/>
+  <xacro:property name="Gripper_offset_z" value="-0.91476"/>
+
+  <!-- Camera Offset -->
+  <xacro:property name="Camera_offset_x" value="0.25000"/>
+  <xacro:property name="Camera_offset_y" value="0.00000"/>
+  <xacro:property name="Camera_offset_z" value="0.10000"/>
+
+  <!-- IMU Offset -->
+  <xacro:property name="IMU_offset_x" value="-0.00000"/>
+  <xacro:property name="IMU_offset_y" value="-0.00000"/>
+  <xacro:property name="IMU_offset_z" value="-0.00000"/>
+
+  <!-- Sensor Offset -->
+  <xacro:property name="Sensor_offset_x" value="-0.00000"/>
+  <xacro:property name="Sensor_offset_y" value="-0.00000"/>
+  <xacro:property name="Sensor_offset_z" value="-0.06000"/>
+
+
+  <!-- Building -->
+  <xacro:robot_base />
+
+  <xacro:scara offset_x="${Scara_offset_x}" offset_y="${Scara_offset_y}" offset_z="${Scara_offset_z}" parent_link="Chasis.004_link"/>
+  <xacro:gripper offset_x="${Gripper_offset_x}" offset_y="${Gripper_offset_y}" offset_z="${Gripper_offset_z}" parent_link="Cylinder.003_link"/>
+
+  <xacro:rover_wheels offset_x="${FL_wheel_offset_x}" offset_y="${FL_wheel_offset_y}" offset_z="${FL_wheel_offset_z}" parent_link="Cube.002_link" RotationDirection="-1" identifier="FL"/>
+  <xacro:rover_wheels offset_x="${FR_wheel_offset_x}" offset_y="${FR_wheel_offset_y}" offset_z="${FR_wheel_offset_z}" parent_link="Cube.002_link" RotationDirection="1" identifier="FR"/>
+  <xacro:rover_wheels offset_x="${BL_wheel_offset_x}" offset_y="${BL_wheel_offset_y}" offset_z="${BL_wheel_offset_z}" parent_link="Cube.001_link" RotationDirection="-1" identifier="BL"/>
+  <xacro:rover_wheels offset_x="${BR_wheel_offset_x}" offset_y="${BR_wheel_offset_y}" offset_z="${BR_wheel_offset_z}" parent_link="Cube.001_link" RotationDirection="1" identifier="BR"/>
+
+  <xacro:camera offset_x="${Camera_offset_x}" offset_y="${Camera_offset_y}" offset_z="${Camera_offset_z}" parent_link="Chasis.004_link"/>
+  <xacro:imu_sensor offset_x="${IMU_offset_x}" offset_y="${IMU_offset_y}" offset_z="${IMU_offset_z}" parent_link="base_link"/>
+  <xacro:sensor offset_x="${Sensor_offset_x}" offset_y="${Sensor_offset_y}" offset_z="${Sensor_offset_z}" parent_link="Cube_link"/>
+
+  <!-- sensores -->
+  <!-- <xacro:sensor_camera node_name="front_camera" node_namespace="$(arg robot_ns)" frame_prefix="$(arg prefix)front_camera_" parent="$(arg prefix)base_link">
+  <origin xyz="0.0 1.4 0.5" rpy="0 0 ${PI/2}"/>
+  </xacro:sensor_camera> -->
+  <!--
+  xacro:sensor_camera node_name="arm_camera" node_namespace="$(arg robot_ns)" frame_prefix="$(arg prefix)arm_camera_" parent="$(arg prefix)base_effector_arm_link" >
+          <origin xyz="0.0 0.0 -0.01" rpy="0 3.141592 0"/>
+      </xacro:sensor_camera
+  -->
+  <!--
+  <xacro:sensor_imu ns="$(arg robot_ns)" prefix="$(arg prefix)imu_" parent="$(arg prefix)base_link">
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      </xacro:sensor_imu> 
+  -->
+  <!-- Gazebo ROS control plugins -->
+  <xacro:include filename="$(find simple_rover_description)/urdf/ros2_control.urdf.xacro"/>
+  <!--
+  <xacro:arg name="config_controllers" default="$(find gz_ros2_control_demos)/config/diff_drive_controller.yaml"/> 
+  -->
+  <xacro:arg name="config_controllers" default="$(find simple_rover_description)/config/rover_controllers.yaml"/>
+  <xacro:arg name="update_rate" default="100"/>
+  <xacro:ros2_control/>
+</robot>
