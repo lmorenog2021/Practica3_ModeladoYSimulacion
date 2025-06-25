@@ -387,6 +387,7 @@ Con el IMU del rover podemos sacar las mediciones inerciales del sistema complet
 
 Con esta gráfica podemos ver una serie de picos de aceleración causados en igual parte por mis habilidades de pilotaje y por la irregularidad del suelo. Comparando estos valores con la posición de las ruedas en el tiempo, vemos como la aceleración coincide con el momento en el que el rover see acerca a las cajas.
 
-![image](https://github.com/user-attachments/assets/50d38bfd-15bd-48ec-8aef-9762472d8610)
+![image](https://github.com/user-attachments/assets/7a546e76-5ed1-4c31-bbc2-b58f73be5fd9)
+
 
 
