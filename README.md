@@ -367,23 +367,26 @@ Con el [ROSBAG] sacamos los valores del effort, y el sumatorio de estos es lo qu
 
 Esta es la gráfica:
 
-[GRAFICA]
+![image](https://github.com/user-attachments/assets/8285dab4-cbe9-4eed-a62e-ba0d306d4f65)
 
 Y como podemos ver...
 
 ### Tiempo vs posición de las ruedas
 Del mismo rosbag sacamos las posiciones de las ruedas transmitidas en el topic joint_states.
 
-[GRAFICA]
+![image](https://github.com/user-attachments/assets/8038ee50-9467-4eba-9194-f6e5fd42b566)
+
 
 Podemos ver como en el principio se aprecia muchos cambios, mientras que en la segunda mitad los valores se mantienen constantes. Esto coincide con el momento de acercarse al cubo y el momento en el que el rover se queda quieto mientras maniobra con el SCARA. Los saltos que irregulares que se ven en la gráfica se producen por la interacción de las ruedas del rover con el terreno irregular propio de las obras.
 
 ### Tiempo vs aceleración de las ruedas
 Con el IMU del rover podemos sacar las mediciones inerciales del sistema completo.
 
-[GRAFICA VELOCIDADES]
+![image](https://github.com/user-attachments/assets/7303cec8-47f2-40aa-b580-bf51629b5992)
+
 
 Con esta gráfica podemos ver una serie de picos de aceleración causados en igual parte por mis habilidades de pilotaje y por la irregularidad del suelo. Comparando estos valores con la posición de las ruedas en el tiempo, vemos como la aceleración coincide con el momento en el que el rover see acerca a las cajas.
 
-[SEGUNDA GRÁFICA DE VELOCIDADES]
+![image](https://github.com/user-attachments/assets/50d38bfd-15bd-48ec-8aef-9762472d8610)
+
 
