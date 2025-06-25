@@ -369,7 +369,7 @@ Esta es la gráfica:
 
 ![image](https://github.com/user-attachments/assets/8285dab4-cbe9-4eed-a62e-ba0d306d4f65)
 
-Y como podemos ver...
+Y podemos ver 3 elementos distintos, un tramo de altas oscilaciones, un tramo plano, y un tramo curvado. El tramo de altas oscilaciones representan el momento en el que el brazo scara levanta la caja. El tramo plano es el momento en el que me puse a trastear con la GUI para llevar el gripper a la posición "lobby". Y el tramo curvo es cuando ya ejecuté ese movimiento 
 
 ### Tiempo vs posición de las ruedas
 Del mismo rosbag sacamos las posiciones de las ruedas transmitidas en el topic joint_states.
