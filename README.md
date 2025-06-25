@@ -350,10 +350,19 @@ Siguiendo las instrucciones del vídeo de clase configuramos MoveIt:
 ![Screenshot from 2025-05-11 14-50-39](https://github.com/user-attachments/assets/68c96006-1ff1-46e6-9dc6-ffd2f0b8174e)
 ![Screenshot from 2025-05-11 14-50-51](https://github.com/user-attachments/assets/145c58d1-b9dd-441e-b45a-38b785c9f43d)
 ![Screenshot from 2025-05-11 14-50-59](https://github.com/user-attachments/assets/28879760-14d1-48a0-a279-29d7d3570b9f)
-Y aquí es donde encontramos problemas, porque a pesar de que el teleop funciona:
+
+
+Comprobamos que el teleop funciona, y con las cámaras nos acercamos al cubo:
 ![Inicio](https://github.com/user-attachments/assets/82ceda21-43c9-4299-91db-4876040bf519)
 ![Destino](https://github.com/user-attachments/assets/377eeec2-c2bc-4535-ad6f-e89756a3dc49)
 
-A la hora de hacer el plan y ejecutarlo, se queda atascado el sistema y no continúa con la ejecución
+Con la GUI hacemos la planificacion y movemos el brazo y gripper.
 ![image](https://github.com/user-attachments/assets/1771c09e-e7c7-4f22-abc0-3edd994cf29d)
 ![image](https://github.com/user-attachments/assets/70131025-3845-43fd-8612-bb93cc285aee)
+
+### Tiempo vs G-Parcial
+Con el [ROSBAG] sacamos los valores del effort, y el sumatorio de estos es lo que nos da la G parcial.
+![image](https://github.com/user-attachments/assets/ac4bb497-9622-4689-b78a-4e77ead6c91e)
+Esta es la gráfica:
+[GRAFICA]
+Y como podemos ver...
