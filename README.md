@@ -362,7 +362,16 @@ Con la GUI hacemos la planificacion y movemos el brazo y gripper.
 
 ### Tiempo vs G-Parcial
 Con el [ROSBAG] sacamos los valores del effort, y el sumatorio de estos es lo que nos da la G parcial.
+
 ![image](https://github.com/user-attachments/assets/ac4bb497-9622-4689-b78a-4e77ead6c91e)
+
 Esta es la gráfica:
 [GRAFICA]
 Y como podemos ver...
+
+### Tiempo vs posición de las ruedas
+Del mismo rosbag sacamos las posiciones de las ruedas transmitidas en el topic joint_states.
+[GRAFICA]
+Podemos ver como en el principio se aprecia muchos cambios, mientras que en la segunda mitad los valores se mantienen constantes. Esto coincide con el momento de acercarse al cubo y el momento en el que el rover se queda quieto mientras maniobra con el SCARA. Los saltos que irregulares que se ven en la gráfica se producen por la interacción de las ruedas del rover con el terreno irregular propio de las obras.
+
+### Tiempo vs aceleración de las ruedas
