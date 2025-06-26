@@ -365,11 +365,17 @@ Con el [ROSBAG](https://drive.google.com/drive/folders/1IB2IpDgK0Ur-cDyT9IHB7Bnr
 
 ![image](https://github.com/user-attachments/assets/ac4bb497-9622-4689-b78a-4e77ead6c91e)
 
-Esta es la gráfica que hemos sacado con [plotJuggler](https://github.com/facontidavide/PlotJuggler) utilizando Lua para crear una función que combine los valores absolutos de todos los efforts combinados:
+Para obtener la gráfica usamos [plotJuggler](https://github.com/facontidavide/PlotJuggler) y para calcular la G-Parcial de todos los effort combinados usamos una "Custom Series" en plotjuggler, y con esta línea de codigo en Lua recibimos los valores que buscabamos. 
+
+```
+return (math.abs(value) + math.abs(v1) + math.abs(v2) + math.abs(v3) + math.abs(v4) + math.abs(v5))
+```
+
+Esta es la gráfica que hemos conseguido:
 
 ![image](https://github.com/user-attachments/assets/8285dab4-cbe9-4eed-a62e-ba0d306d4f65)
 
-Y podemos ver 3 elementos distintos, un tramo de altas oscilaciones, un tramo plano, y un tramo curvado. El tramo de altas oscilaciones representan el momento en el que el brazo scara levanta la caja. El tramo plano es el momento en el que me puse a trastear con la GUI para llevar el gripper a la posición "lobby". Y el tramo curvo es cuando ya ejecuté ese movimiento 
+Y en ella podemos ver tres elementos distintos en la gráfica: un tramo de altas oscilaciones, un tramo plano y un tramo curvado. El tramo de altas oscilaciones representa el momento en el que el brazo SCARA levanta la caja, lo que genera variaciones bruscas en los datos debido al esfuerzo mecánico involucrado. A continuación, aparece un tramo plano, correspondiente al periodo de tiempo en el que me puse a trastear con la interfaz gráfica (GUI) para ajustar la posición del gripper, con la intención de llevarlo hacia la posición "lobby". Durante este tiempo no hubo movimientos significativos, lo que se refleja en la estabilidad de los valores. Finalmente, el tramo curvo representa el momento en el que ejecuté ese movimiento previamente configurado, generando un cambio progresivo y suave en la señal.
 
 ### Tiempo vs posición de las ruedas
 Del mismo rosbag sacamos las posiciones de las ruedas transmitidas en el topic joint_states.
@@ -377,7 +383,7 @@ Del mismo rosbag sacamos las posiciones de las ruedas transmitidas en el topic j
 ![image](https://github.com/user-attachments/assets/8038ee50-9467-4eba-9194-f6e5fd42b566)
 
 
-Podemos ver como en el principio se aprecia muchos cambios, mientras que en la segunda mitad los valores se mantienen constantes. Esto coincide con el momento de acercarse al cubo y el momento en el que el rover se queda quieto mientras maniobra con el SCARA. Los saltos e irregulares que se ven en la gráfica se producen por la interacción de las ruedas del rover con el terreno irregular propio de las obras.
+Podemos ver cómo, al principio de la gráfica, se aprecian muchos cambios y variaciones bruscas en los valores, lo que indica una actividad dinámica del sistema. En contraste, en la segunda mitad los valores se mantienen prácticamente constantes, reflejando una fase de mayor estabilidad. Esta diferencia coincide con dos momentos clave del experimento: el primero, cuando el rover se está acercando al cubo, lo que implica movimiento y ajustes de trayectoria; y el segundo, cuando el rover permanece quieto en una posición fija mientras realiza maniobras con el brazo SCARA. Los saltos e irregularidades que se observan a lo largo de la gráfica se deben principalmente a la interacción de las ruedas del rover con el terreno desigual, característico de las zonas de obra, lo que introduce perturbaciones en el desplazamiento y en los datos registrados.
 
 ### Tiempo vs aceleración de las ruedas
 Con el IMU del rover podemos sacar las mediciones inerciales del sistema completo.
@@ -385,7 +391,7 @@ Con el IMU del rover podemos sacar las mediciones inerciales del sistema complet
 ![image](https://github.com/user-attachments/assets/7303cec8-47f2-40aa-b580-bf51629b5992)
 
 
-Con esta gráfica podemos ver una serie de picos de aceleración causados en igual parte por mis habilidades de pilotaje y por la irregularidad del suelo. Comparando estos valores con la posición de las ruedas en el tiempo, vemos como la aceleración coincide con el momento en el que el rover see acerca a las cajas.
+Con esta gráfica podemos observar una serie de picos de aceleración que se producen de forma recurrente a lo largo del tiempo. Estos picos son causados en igual medida tanto por mis habilidades de pilotaje —no siempre del todo precisas— como por la irregularidad del terreno, que genera perturbaciones naturales en el movimiento del rover. Al comparar estos valores de aceleración con la evolución de la posición de las ruedas a lo largo del tiempo, podemos ver claramente cómo estos aumentos repentinos coinciden con los momentos en los que el rover se aproxima a las cajas. Esto sugiere que las maniobras de acercamiento, que requieren frenadas y correcciones, están directamente relacionadas con los picos registrados en la aceleración.
 
 ![image](https://github.com/user-attachments/assets/7a546e76-5ed1-4c31-bbc2-b58f73be5fd9)
 
