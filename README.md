@@ -365,7 +365,7 @@ Con el [ROSBAG](https://drive.google.com/drive/folders/1IB2IpDgK0Ur-cDyT9IHB7Bnr
 
 ![image](https://github.com/user-attachments/assets/ac4bb497-9622-4689-b78a-4e77ead6c91e)
 
-Esta es la gráfica:
+Esta es la gráfica que hemos sacado con [plotJuggler](https://github.com/facontidavide/PlotJuggler):
 
 ![image](https://github.com/user-attachments/assets/8285dab4-cbe9-4eed-a62e-ba0d306d4f65)
 
