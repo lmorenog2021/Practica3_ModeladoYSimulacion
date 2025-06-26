@@ -377,7 +377,7 @@ Del mismo rosbag sacamos las posiciones de las ruedas transmitidas en el topic j
 ![image](https://github.com/user-attachments/assets/8038ee50-9467-4eba-9194-f6e5fd42b566)
 
 
-Podemos ver como en el principio se aprecia muchos cambios, mientras que en la segunda mitad los valores se mantienen constantes. Esto coincide con el momento de acercarse al cubo y el momento en el que el rover se queda quieto mientras maniobra con el SCARA. Los saltos que irregulares que se ven en la gráfica se producen por la interacción de las ruedas del rover con el terreno irregular propio de las obras.
+Podemos ver como en el principio se aprecia muchos cambios, mientras que en la segunda mitad los valores se mantienen constantes. Esto coincide con el momento de acercarse al cubo y el momento en el que el rover se queda quieto mientras maniobra con el SCARA. Los saltos e irregulares que se ven en la gráfica se producen por la interacción de las ruedas del rover con el terreno irregular propio de las obras.
 
 ### Tiempo vs aceleración de las ruedas
 Con el IMU del rover podemos sacar las mediciones inerciales del sistema completo.
