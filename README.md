@@ -361,7 +361,7 @@ Con la GUI hacemos la planificacion y movemos el brazo y gripper.
 ![image](https://github.com/user-attachments/assets/70131025-3845-43fd-8612-bb93cc285aee)
 
 ### Tiempo vs G-Parcial
-Con el [ROSBAG] sacamos los valores del effort, y el sumatorio de estos es lo que nos da la G parcial.
+Con el [ROSBAG](https://drive.google.com/drive/folders/1IB2IpDgK0Ur-cDyT9IHB7BnrztrWIJzx?usp=sharing) sacamos los valores del effort, y el sumatorio de estos es lo que nos da la G parcial.
 
 ![image](https://github.com/user-attachments/assets/ac4bb497-9622-4689-b78a-4e77ead6c91e)
 
